@@ -26,6 +26,24 @@ Next we create two separate private routing tables, as well as routes for each a
 associate them to their respective private subnets and NAT Gateways. Lastly,
 we create a variety of exports in our<br/> Outputs section so taht we can reference
 public and private subnets as needed for our ASG servers and RDS Instances.
+We use a parameters.JSON file to define our EnvironmentName, and give CIDR
+ranges to the VPC and all of its subnets.
+```
+**servers.YAML (Resources created: Launch Configuration, EC2 Security Group, EC2 Key Pair, Auto-Scaling Group, Elastic
+Load Balancer, ELB Listener Rule, and ELB Target Group)**
+```
+The server dot YAML file creates an EC2 Security Group that only allows traffic from port 80 over tcp from anywhere,
+as well as port 22 over tcp from anywhere, and lastly it allows a special port range from port 0 to port 65535 to any
+destination on the internet. Next, we create a launch configuration to be used with our Auto-Scaling Group of EC2 instances.
+We run a user data script to start the http daemon, associate the KeyPair, associate it with the aforementioned security group,
+define instance type, and elastic block store volume size. Next we create an Auto Scaling Group, where we associate it with the
+private subnets, references the aforementioned launch config, sets a minimum and maximum number of instances to be run, and associates
+it to the target group. We create another EC2 Security Group for our Elastic Load Balancer, associate it to the VPC (sits outside of
+the public and private subnets), allow traffic from anywhere on port 80 and all traffic out on port 80. Next, we create the Elastic
+Load Balancer, associate it with the two public subnets, and load balancer security group. We create an ELB Listener that
+forwards requests over port 80 to the target group. Next, we create an ELB Listener Rule that fowards requests to the
+target group based on the path "/". Lastly, we create an ELB Target Group where we associate health based properties, as well
+as the port, and associate it to the VPC.
 ```
 
 ## Security
