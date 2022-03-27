@@ -12,7 +12,7 @@ In this assignment we utilize Amazon Web Services' CloudFormation to create a VP
 6). Auto-Scaling Group (ASG)<br/>
 7). MySQL Relational Database Service (RDS)<br/>
 
-### Elaboration of Technologies Used
+## Elaboration of Technologies Used
 
 **network.YAML (Resources created: VPC, IG, NAT Gateway, EIP, and Subnets)**
 ```
