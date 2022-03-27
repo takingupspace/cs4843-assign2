@@ -4,15 +4,19 @@ In this assignment we utilize Amazon Web Services' CloudFormation to create a VP
 
 ## Infrastructure Utilized
 
-## Security
-
-## Error Handling
-
-## Built With
+1). VPC (Virtual Private Cloud)
+2). Internet Gateway (IG)
+3). Elastic Load Balancer (ELB)
+4). Elastic IP (EIP)
+5). NAT Gateway
+6). Auto-Scaling Group (ASG)
+7). MySQL Relational Database Service (RDS)
 
 ### Elaboration of Technologies Used
 
 ```
+VPC --
+The network YAML file contains the VPC's CIDR range, as well as ranges for the two public and two private subnets. We create an Internet Gateway and an Internet Gateway Attachment so that we can attach the Internet Gateway to the AWS VPC. We create two different Elastic IP and allocate two NAT Gateways with them, where each public subnet has one NAT gateway. We then create a public route table and associate a route from any address (0.0.0.0/0) through the Internet Gateway. We then attach our two public subnet CIDR ranges with the public route table. Next we create two separate private routing tables, as well as routes for each and associate them to their respective private subnets and NAT Gateways. Lastly, we create a variety of exports in our Outputs section so taht we can reference public and private subnets as needed for our ASG servers and RDS Instances.
 ```
 ```
 ```
@@ -20,6 +24,10 @@ In this assignment we utilize Amazon Web Services' CloudFormation to create a VP
 ```
 ```
 ```
+
+## Security
+
+## Error Handling
 
 ## Author
 
