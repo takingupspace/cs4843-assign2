@@ -2,6 +2,8 @@
 
 In this assignment we utilize Amazon Web Services' CloudFormation to create a VPC with two public and two private subnets across two different availability zones for high availability. We use an Internet Gateway Attachment to gain access to the public internet via our VPC. Traffic flows to our load balancer from the Internet Gateway and fowards requests to NAT gateway instances (that each have an Elastic IP) based on listener rules. There are two NAT Gateways that sit in public subnets which give access to our private subnet associated web servers. We also provide a CloudFormation template for an Auto-Scaling Group of EC2 instances. Lastly we create a primary and a secondary RDS instance in each private subnet for high availability and disaster recovery.
 
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embeddedchart/6ecee1b0-ff4f-4827-b623-661a861f91fe" id="2iW5g72zbZ5L"></iframe></div>
+
 ## Infrastructure Utilized
 
 1). VPC (Virtual Private Cloud)<br/>
