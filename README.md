@@ -51,23 +51,22 @@ and associate it to the VPC.
 **database.YAML (db1.YAML and db2.YAML) (Resources created: Database Instance, and Database Subnet Group)**
 ```
 The database dot YAML file defines a Database Identifier, associates a default name for that database resource,
-identifier, as well as the minimum and maximum lengths for the String name. Next, the database name
-follows similar rules for instantiation as the Database Identifier. We then create a Database User
-with the allowed patterns for creation, set the default to dbadmin, set the minimum and
-maximum lengths to 1 and 16 according, and set NoEcho to true which allows us the privacy
+identifier, as well as the minimum and maximum lengths for its name (String-type). Next, the database name
+follows similar rules for instantiation as the Database Identifier. We create a Database User
+with allowed patterns for creation, set the default to dbadmin, set the minimum and
+maximum lengths to 1 and 16 according, and set No Echo to true, which allows us the privacy
 of not exposing the db user-name if we were to upload this file via the AWS console.
 Next, we follow a similar instructional pattern for the password, but here we set
-the minimum and maximum lengths to 8 and 64 respectively for obvious reasons.
-Next, we set the minimum and maximum retention periods for Database snapshots.
-Then, we set the storage allocation for the storage with a default of 20, as well
-as a minimum value of 5 and a maximum of 65536 (in GigaBytes). Next,
-we set the allowed instance types accordingly. Unfortunately
+the minimum and maximum lengths to 8 and 64 respectively, for obvious reasons.
+We set the minimum and maximum retention periods for Database snapshots.
+The storage allocation is set with a default of 20GB. Next,
+we set the allowed instance types. Unfortunately
 Multi-AZ Database deployments are not possible with CloudFormation, so we set
 Multi-AZ Database to false. We create the Database Subnet Group and associate
 it with the two different private subnets. Lastly, we create the actual database
 instance where we associate all the aforementioned parameters, the most important
 of which (for high availability) is the Availability Zone specification. To
-provide high availability we create two different database dot YAML files
+provide high availability, we create two different database dot YAML files
 and associate each with a different availability zone across their respective
 private subnets.
 ```
