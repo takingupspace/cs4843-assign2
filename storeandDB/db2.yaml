@@ -32,7 +32,7 @@ Parameters:
   DatabaseInstanceIdentifier:
     AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
     ConstraintDescription: Must begin with a letter and contain only alphanumeric characters
-    Default: mysql57db
+    Default: mysql57db2
     Description: Instance identifier name
     MaxLength: 60
     MinLength: 1
@@ -109,7 +109,7 @@ Resources:
     Type: AWS::RDS::DBSubnetGroup
     Properties:
       DBSubnetGroupDescription: Subnet group for RDS database
-      SubnetIds: 
+      SubnetIds:
         - Fn::ImportValue: !Sub ScalableWebSRVProject-PRI1-SN
         - Fn::ImportValue: !Sub ScalableWebSRVProject-PRI2-SN
       Tags:
@@ -120,7 +120,7 @@ Resources:
     Type: AWS::RDS::DBInstance
     Properties:
       AllocatedStorage: !Ref DatabaseAllocatedStorage
-      AvailabilityZone: !Select [ 0, !GetAZs  '' ]
+      AvailabilityZone: !Select [ 1, !GetAZs  '' ]
       BackupRetentionPeriod: !Ref DatabaseBackupRetentionPeriod
       DBInstanceClass: !Ref DatabaseInstanceClass
       DBInstanceIdentifier: !Ref DatabaseInstanceIdentifier
