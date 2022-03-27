@@ -15,7 +15,7 @@ In this assignment we utilize Amazon Web Services' CloudFormation to create a VP
 ### Elaboration of Technologies Used
 
 ```
-network.YAML (Resources created: VPC, IG, NAT Gateway, EIP, and Subnets) --
+<strong>network.YAML (Resources created: VPC, IG, NAT Gateway, EIP, and Subnets) --<strong>
 The network YAML file contains the VPC's CIDR range, as well as ranges for the two public and two private subnets.
 We create an Internet Gateway and an Internet Gateway Attachment so that we can attach
 the Internet Gateway to the AWS VPC. We create two different Elastic IP and allocate two
