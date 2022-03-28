@@ -16,6 +16,8 @@ In this assignment we utilize Amazon Web Services' CloudFormation to create a VP
 
 ## Elaboration of Technologies Used
 
+### Each YAML file resides within a separate folder, each with a bash script file that can be run from the AWS CLI
+
 **network.YAML (Resources created: VPC, IG, NAT Gateway, EIP, and Subnets)**
 ```
 The network dot YAML file contains the VPC's CIDR range, as well as ranges for the two public and two private subnets.
